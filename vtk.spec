@@ -35,7 +35,7 @@
 Summary: The Visualization Toolkit - A high level 3D visualization library
 Name: vtk
 Version: 9.0.1
-Release: 8%{?dist}
+Release: 9%{?dist}
 # This is a variant BSD license, a cross between BSD and ZLIB.
 # For all intents, it has the same rights and restrictions as BSD.
 # http://fedoraproject.org/wiki/Licensing/BSD#VTKBSDVariant
@@ -56,6 +56,7 @@ Patch3: vtk-AllValues.patch
 Patch4: vtk_freetype-2.10.4.patch
 # Proj 5 support - backport https://gitlab.kitware.com/vtk/vtk/-/merge_requests/7731
 Patch5: vtk-proj5.patch
+Patch6: vtk_openslidereader_init.patch
 
 URL: https://vtk.org/
 
@@ -434,6 +435,7 @@ programming languages.
 %patch3 -p1 -b .AllValues
 %patch4 -p1 -b .freetype
 %patch5 -p1 -b .proj5
+%patch6 -p1
 # Remove included thirdparty sources just to be sure
 # TODO - diy2 - not yet packaged
 # TODO - exodusII - not yet packaged
@@ -781,6 +783,9 @@ cat xorg.log
 
 
 %changelog
+* Tue Aug 31 2021 David Bold <davidsch@fedoraproject.org> - 9.0.1-9
+- Add patch to avoid segfault in mayavi
+
 * Fri May 21 2021 Sandro Mani <manisandro@gmail.com> - 9.0.1-8
 - Rebuild (gdal)
 

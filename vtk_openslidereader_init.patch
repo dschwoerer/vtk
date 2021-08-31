@@ -1,0 +1,13 @@
+diff --git a/Domains/Microscopy/vtkOpenSlideReader.h b/Domains/Microscopy/vtkOpenSlideReader.h
+index 097d31a4..0b8ae859 100644
+--- a/Domains/Microscopy/vtkOpenSlideReader.h
++++ b/Domains/Microscopy/vtkOpenSlideReader.h
+@@ -73,7 +73,7 @@ protected:
+   void ExecuteDataWithInformation(vtkDataObject* out, vtkInformation* outInfo) override;
+ 
+ private:
+-  openslide_t* openslide_handle;
++  openslide_t* openslide_handle{nullptr};
+ 
+   vtkOpenSlideReader(const vtkOpenSlideReader&) = delete;
+   void operator=(const vtkOpenSlideReader&) = delete;
